@@ -69,7 +69,7 @@ export function iniciarBot(dato) {
 
 ---
 
-*📦 `package.json` (fragmento mínimo)*
+*📦 `package.json`*
 
 ```json
 {
@@ -80,5 +80,4 @@ export function iniciarBot(dato) {
   "dependencies": {
     "chalk": "^5.3.0",
     "qrcode": "^1.5.1"
-}
 }
