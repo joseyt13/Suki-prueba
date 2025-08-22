@@ -8,14 +8,12 @@ import axios from 'axios';
 import moment from 'moment-timezone';
 
 global.owner = [
-  ['573113406369', "Bajo Bots", true],
-  ['584146277368', "Barboza Mod", true],
-  ['5355699866', "Carlos", true],
-  ['573113406369@s.whatsapp.net', "Bajo", true],
+  ['5491156178758', "୧ ꜰᴇᴅᴇxʏᴢㅤ🎋", true],
+  ['5491156178758@s.whatsapp.net', "fedexyz", true],
 ] 
 
-global.mods = [] 
-global.prems = []
+global.mods = ['5491156178758']
+global.prems = ['5491156178758']
 global.APIs = {
   xteam: 'https://api.xteam.xyz', 
   nrtm: 'https://fg-nrtm.ddns.net',
@@ -30,17 +28,17 @@ global.APIKeys = {
 
 // Sticker WM & prefijo
 global.prefijo = ""; // déjalo en blanco para multi - prefijo
-global.packname = "𝐤𝐚𝐧𝐞𝐤𝐢 𝐛𝐨𝐭 𝐯𝟏 | Bajo ν1";
-global.footer = "> Bʏ Bᴀᴊᴏ Bᴏᴛs ~";
-global.wm = "𝐤𝐚𝐧𝐞𝐤𝐢 𝐛𝐨𝐭 𝐯𝟏 | Bajo ν1";
-global.author = " 𝐤𝐚𝐧𝐞𝐤𝐢 𝐛𝐨𝐭 𝐯𝟏  ~"
+global.packname = "🎄 Sᴜᴋɪ𝐁𝐨𝐭_MD  𝐁ᥡ ꜰᴇᴅᴇxʏᴢ";
+global.footer = "୧ ꜰᴇᴅᴇxʏᴢㅤ🎋";
+global.wm = "🎄 Sᴜᴋɪ𝐁𝐨𝐭_MD 🎋";
+global.author = " 🎄 Sᴜᴋɪ𝐁𝐨𝐭_MD 🎋"
 global.link = 'https://chat.whatsapp.com/IVgxD0TWWuSA0lVoexudIS';
 global.logo = 'https://qu.ax/tyxJP.jpg'; 
-global.botname = '☠️ 𝗞𝗮𝗻𝗲𝗸𝗶𝗕𝗼𝘁-𝗠𝗗 ☠️'
+global.botname = '🎄 Sᴜᴋɪ𝐁𝐨𝐭_MD 🎋'
 
 global.canalreg = '120363417208139711@boletin informativo'
 
-global.namecanal = '𝐊𝐀𝐍𝐄𝐊𝐈𝐁𝐎𝐓-𝐌𝐃'
+global.namecanal = 'Sᴜᴋɪ𝐁𝐨𝐭_MD'
 global.canal = 'https://whatsapp.com/channel/0029Vb63Kf9KwqSQLOQOtk3N'
 global.idcanal = '120363419009027760@boletin informativo'
 
