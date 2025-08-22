@@ -192,21 +192,23 @@ if (!!phoneNumber) {
 addNumber = phoneNumber.replace(/[^0-9]/g, '')
 } else {
 do {
-phoneNumber = await question(chalk.bgBlack(chalk.bold.greenBright(`🌹  Por favor ingrese el número de WhatsApp. Ejemplo :\n+5491156178758\n${chalk.bold.magentaBright('---> ')}`)))
-phoneNumber = phoneNumber.replace(/\D/g,'')
-if (!phoneNumber.startsWith('+')) {
-phoneNumber = `+${phoneNumber}`
+phoneNumber = await question(chalk.greenBright("🌹 Ingresá el número en formato internacional (ej: +5491156178758): "));
+    phoneNumber = phoneNumber.trim();
+    if (!phoneNumber.startsWith('+')) {
+      phoneNumber = `+${phoneNumber.replace(/\D/g, '')}`;
 }
-} while (!await isValidPhoneNumber(phoneNumber))
-rl.close()
-addNumber = phoneNumber.replace(/\D/g, '')
-setTimeout(async () => {
-let codeBot = await conn.requestPairingCode(addNumber)
-codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
-console.log(chalk.bold.white(chalk.bgMagenta('🏝️  Código de vinculación :')), chalk.bold.white(chalk.white(codeBot)))
-}, 2000)
-}}}
+} while (!isValidPhoneNumber(phoneNumber));
+
+  rl.close();
+
+  try {
+    let codeBot = await conn.requestPairingCode(phoneNumber);
+    codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || "Código no recibido";
+    console.log(chalk.bgMagenta("🏝️ Código de vinculación:"), chalk.white(codeBot));
+} catch (err) {
+    console.error(chalk.red("❌ Error al obtener el código:"), err);
 }
+})();
 
 conn.isInit = false;
 conn.well = false;
