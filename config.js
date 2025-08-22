@@ -1,115 +1,84 @@
-import { watchFile, unwatchFile } from 'fs' 
+import { watchFile, unwatchFile } from 'fs'
 import chalk from 'chalk'
 import { fileURLToPath } from 'url'
-import fs from 'fs'
-import cheerio from 'cheerio'
-import fetch from 'node-fetch'
-import axios from 'axios'
-import moment from 'moment-timezone' 
+import fs from 'fs';
+import * as cheerio from 'cheerio';
+import fetch from 'node-fetch';
+import axios from 'axios';
+import moment from 'moment-timezone';
 
-//✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
-
-// ᑕOᒪᗩᗷOᖇᗩᗪOᖇᗴՏ Y ᑕᖇᗴáᗪOᖇ 🌸
 global.owner = [
-['5491137612743', '🍁 Creador fedexyz', true],
-['573001533523', '✨️ Colaborador Brayans', true],
-['5491176429275', '🍂 SukiBot', true],
-];
+  ['573113406369', "Bajo Bots", true],
+  ['584146277368', "Barboza Mod", true],
+  ['5355699866', "Carlos", true],
+  ['573113406369@s.whatsapp.net', "Bajo", true],
+] 
 
-//✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
-
-// ᑎᑌᗰᗴᖇO ᗪᗴ OᗯᑎᗴᖇՏ ✨️
-global.mods = ['5491137612743', '573001533523'];
-global.suittag = ['5491137612743', '573001533523'];
-global.prems = ['5491137612743'];
-
-//✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
-
-// IᑎᖴOᖇᗰᗩᑕIOᑎ ՏOᗷᖇᗴ ᒪᗩ ᗷOT 🍁
-global.libreria = 'Baileys';
-global.nameqr = 'SukiBot';
-global.namebot = 'SukiBot';
-global.sessions = 'Sessions';
-global.jadi = 'JadiBots';
-global.sukiJadibts = true;
-
-//✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
-
-// ᗰᗩᖇᑕᗩ ᗪᗴ ᗩᘜᑌᗩ 🗞️
-global.packname = 'Sᴜᴋɪ𝐁𝐨𝐭_MD  (𝗠𝘂𝗹𝘁𝗶-𝗗𝗲𝘃𝗶𝗰𝗲)';
-global.botname = '🎄 Sᴜᴋɪ𝐁𝐨𝐭_MD 🎋';
-global.wm = '🎄 Sᴜᴋɪ𝐁𝐨𝐭_MD 🎋';
-global.dev = '୧ ꜰᴇᴅᴇxʏᴢㅤ🎋';
-global.textbot = '🎄 Sᴜᴋɪ𝐁𝐨𝐭_MD  𝐁ᥡ ꜰᴇᴅᴇxʏᴢ';
-global.etiqueta = '🎄 Sᴜᴋɪ𝐁𝐨𝐭_MD  mᥙᥣ𝗍і-ძᥱ᥎іᥴᥱ';
-
-//✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
-
-// ᗰOᑎᗴᗪᗩՏ 💸
-global.moneda = 'Sukicoins 💵';
-
-//✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
-
-global.namabot = '⫹⫺  ᴍᴅ'
-global.v = '-'   
-global.eror = "_ubo un error _"
-global.lopr = "🅟"
-global.lolm = "Ⓛ"
-global.dmenut = "✦ ───『"
-global.dmenub = "│➭" 
-global.dmenub2 = "│乂"
-global.dmenuf = "╰━━━━━━━━┈─◂"
-global.cmenut = "⫹⫺ ───『"
-global.cmenuh = "』─── ⬟"
-global.cmenub = "│〆"
-global.cmenuf = "╰━━━━━━━━┈─◂"
-global.cmenua = "\n⌕ ❙❘❙❙❘❙❚❙❘❙❙❚❙❘❙❘❙❚❙❘❙❙❚❙❘❙❙❘❙❚❙❘ ⌕\n     "
-global.dashmenu = "✧────···[ *Dashboard* ]···────✧"
-global.htki = '––––––『'
-global.htka = '』––––––'
-global.htjava = "⫹⫺"
-global.comienzo = "• • ◕◕════"
-global.fin = " • •"
-
-//✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
-
-// NO TOCAR ⚔
-global.catalogo = fs.readFileSync('./src/catalogo.jpg');
-global.photoSity = [catalogo]
-
-//✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
-
-// LINKS DEL BOT 🍁
-global.gp1 = 'https://chat.whatsapp.com/Bxwmb1CO5ojASdRT87I11b'
-global.channel2 = 'https://whatsapp.com/channel/0029VbApe6jG8l5Nv43dsC2N'
-global.md = 'https://github.com/fedexyz13/Suki_Bot_MD'
-global.correo = 'fedelanyt20@gmail.com'
-global.cn ='https://whatsapp.com/channel/0029VbApe6jG8l5Nv43dsC2N';
-
-//✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
-
-global.catalogo = fs.readFileSync('./src/catalogo.jpg');
-global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: packname, orderTitle: 'Bang', thumbnail: catalogo, sellerJid: '0@s.whatsapp.net'}}}
-global.ch = {
-ch1: '120363312092804854@newsletter',
+global.mods = [] 
+global.prems = []
+global.APIs = {
+  xteam: 'https://api.xteam.xyz', 
+  nrtm: 'https://fg-nrtm.ddns.net',
+  bg: 'http://bochil.ddns.net',
+  fgmods: 'https://api-fgmods.ddns.net'
+}
+global.APIKeys = {
+  'https://api.xteam.xyz': 'd90a9e986e18778b',
+  'https://zenzapis.xyz': '675e34de8a', 
+  'https://api-fgmods.ddns.net': 'TU-APIKEY'
 }
 
-//✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
+// Sticker WM & prefijo
+global.prefijo = ""; // déjalo en blanco para multi - prefijo
+global.packname = "𝐤𝐚𝐧𝐞𝐤𝐢 𝐛𝐨𝐭 𝐯𝟏 | Bajo ν1";
+global.footer = "> Bʏ Bᴀᴊᴏ Bᴏᴛs ~";
+global.wm = "𝐤𝐚𝐧𝐞𝐤𝐢 𝐛𝐨𝐭 𝐯𝟏 | Bajo ν1";
+global.author = " 𝐤𝐚𝐧𝐞𝐤𝐢 𝐛𝐨𝐭 𝐯𝟏  ~"
+global.link = 'https://chat.whatsapp.com/IVgxD0TWWuSA0lVoexudIS';
+global.logo = 'https://qu.ax/tyxJP.jpg'; 
+global.botname = '☠️ 𝗞𝗮𝗻𝗲𝗸𝗶𝗕𝗼𝘁-𝗠𝗗 ☠️'
 
-global.MyApiRestBaseUrl = 'https://api.cafirexos.com';
-global.MyApiRestApikey = 'BrunoSobrino';
-global.openai_org_id = 'org-3';
-global.openai_key = 'sk-0';
-global.keysZens = ['LuOlangNgentot', 'c2459db922', '37CC845916', '6fb0eff124', 'hdiiofficial', 'fiktod', 'BF39D349845E', '675e34de8a', '0b917b905e6f'];
-global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())];
-global.keysxteammm = ['29d4b59a4aa687ca', '5LTV57azwaid7dXfz5fzJu', 'cb15ed422c71a2fb', '5bd33b276d41d6b4', 'HIRO', 'kurrxd09', 'ebb6251cc00f9c63'];
-global.keysxteam = keysxteammm[Math.floor(keysxteammm.length * Math.random())];
-global.keysneoxrrr = ['5VC9rvNx', 'cfALv5'];
-global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())];
-global.lolkeysapi = ['kurumi']; // ['BrunoSobrino_2']
-global.itsrose = ['4b146102c4d500809da9d1ff'];
+global.canalreg = '120363417208139711@boletin informativo'
 
-//✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
+global.namecanal = '𝐊𝐀𝐍𝐄𝐊𝐈𝐁𝐎𝐓-𝐌𝐃'
+global.canal = 'https://whatsapp.com/channel/0029Vb63Kf9KwqSQLOQOtk3N'
+global.idcanal = '120363419009027760@boletin informativo'
+
+global.ch = {
+cap1: '120363419009027760@newsletter',
+}
+
+global.wait = "\`Cargando . . . Espera un momento.\`"
+global.rwait = '⌛'
+global.dmoji = '🤭'
+global.done = '✅'
+global.error = '❌' 
+global.xmoji = '🔥' 
+//############
+global.imagen = fs.readFileSync('./src/img.jpg');
+global.cheerio = cheerio;
+global.fs = fs;
+global.fetch = fetch;
+global.axios = axios;
+global.moment = moment;
+//############
+global.jadi = "Data/Sesiones/Subbots"
+global.Sesion = "Data/Sesiones/Principal"
+global.dbname = "Data/database.json"
+
+//Tiempo del bot
+global.d = new Date(new Date + 3600000)
+global.locale = 'es'
+global.dia = d.toLocaleDateString(locale, { weekday: 'long' })
+global.fecha = d.toLocaleDateString('es', { day: 'numeric', month: 'numeric', year: 'numeric' })
+global.mes = d.toLocaleDateString('es', { month: 'long' })
+global.año = d.toLocaleDateString('es', { year: 'numeric' })
+global.tiempo = d.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true })
+global.botdate = `⫹⫺ Date :  ${moment.tz('America/Los_Angeles').format('DD/MM/YY')}` //Asia/Jakarta
+global.bottime = `𝗧 𝗜 𝗠 𝗘 : ${moment.tz('America/Los_Angeles').format('HH:mm:ss')}`
+
+global.multiplier = 250
+global.maxwarn = '2' // máxima advertencias
 
 let file = fileURLToPath(import.meta.url)
 watchFile(file, () => {
