@@ -33,7 +33,7 @@ function verify() {
 }
 verify()
 
-say('Kaneki', {
+say('🎄 Sᴜᴋɪ𝐁𝐨𝐭_MD 🎋', {
   font: 'simple',
   align: 'left',
   gradient: ['green', 'white']
