@@ -27,14 +27,14 @@ const pregunta = (texto) => new Promise(resolve => rl.question(texto, resolve));
   if (opcion === "1") {
     const codigo = generarCodigo();
     console.log(chalk.bgMagenta("\n🔐 Código generado:"), chalk.whiteBright(codigo));
-    iniciarBot(codigo); // Lógica personalizada
+    iniciarBot(codigo);
 } else if (opcion === "2") {
     const qrData = `${config.nombreBot}:${generarCodigo()}`;
     console.log(chalk.bgGreen("\n📲 Generando QR..."));
     qrcode.toString(qrData, { type: "terminal"}, (err, qr) => {
       if (err) return console.error("❌ Error al generar QR:", err);
       console.log(qr);
-      iniciarBot(qrData); // Lógica personalizada
+      iniciarBot(qrData);
 });
 } else {
     console.log(chalk.red("\n❌ Opción inválida. Ejecuta el script nuevamente."));
@@ -42,3 +42,43 @@ const pregunta = (texto) => new Promise(resolve => rl.question(texto, resolve));
 
   rl.close();
 })();
+```
+
+---
+
+*⚙️ `config.js`*
+
+```js
+export const config = {
+  nombreBot: "SukiBot_MD",
+  version: "1.0.0",
+  creador: "Delfina 💞"
+};
+```
+
+---
+
+*🚀 `jadibot-serbot.js`*
+
+```js
+export function iniciarBot(dato) {
+  console.log(`🚀 SukiBot_MD iniciado con: ${dato}`);
+  // Aquí podés agregar tu lógica real de conexión
+}
+```
+
+---
+
+*📦 `package.json` (fragmento mínimo)*
+
+```json
+{
+  "name": "SukiBot_MD",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "qrcode": "^1.5.1"
+}
+}
