@@ -53,7 +53,7 @@ global.done = '✅'
 global.error = '❌' 
 global.xmoji = '🔥' 
 //############
-global.imagen = fs.readFileSync('./src/img.jpg');
+global.imagen = fs.readFileSync('./src/catalogo.jpg');
 global.cheerio = cheerio;
 global.fs = fs;
 global.fetch = fetch;
